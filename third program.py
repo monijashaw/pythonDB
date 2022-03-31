@@ -1,0 +1,22 @@
+import pymysql
+try:
+    prodid=int(input("Enter the prodid: "))
+    modelname=input("Enter the model name: ")
+    company=input("Enter the company name: ")
+    connectivity=input("Enter the type of connectivity(4G/5G)?? ")
+    ram=input("Enter the GB of ram: ")
+    rom=input("Enter the size of Rom: ")
+    color=input("Enter the color of model: ")
+    screen=input("Enter the size of screen: ")
+    battery=input("Enter the Battery capacity: ")
+    processor=input("Enter the processor size: ")
+    price=int(input("Enter the Price of Model: "))
+    rating=int(input("How do you rate our model(out of 5): "))
+    con=pymysql.connect(host="bna2xw5ovxf216tn5fqu-mysql.services.clever-cloud.com",database="bna2xw5ovxf216tn5fqu",password="k4ULcq5fHPUxRi1lFlL0",user="ujbt5gcln4pajohe")
+    curs=con.cursor()
+    curs.execute("insert into MOBILES values(%d,'%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d)"%(prodid,modelname,company,connectivity,ram,rom,color,screen,battery,processor,price,rating))
+    con.commit()
+    print("New Mobile data added successfully")
+    con.close()
+except Exception as e:
+    print("Error in data...cant insert",e)    

@@ -1,0 +1,10 @@
+import pymysql
+con=pymysql.connect(host='bna2xw5ovxf216tn5fqu-mysql.services.clever-cloud.com',user='ujbt5gcln4pajohe',password='k4ULcq5fHPUxRi1lFlL0',database='bna2xw5ovxf216tn5fqu')
+curs=con.cursor()
+a=input("Enter the Ram capacity ")
+b=int(input("enter the rom capacity"))
+print("All RAM-ROM combination of records")
+curs.execute("select ram,rom from MOBILES")
+data=curs.fetchall()
+print(data)
+con.close()
